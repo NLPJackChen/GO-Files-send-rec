@@ -15,21 +15,24 @@ func Recvfile(filename string,conn net.Conn) {
 
 	buf := make([]byte, 1024*4)
 	for {
-		n, err := f.Read(buf)
+		n, err := conn.Read(buf)
 		if err != nil {
 			if err == io.EOF {
 				fmt.Println("文件接收完毕")
 			} else {
-				return
+				fmt.Println("err = ",err)
+
 			}
-			if n==0{
+			return }
+		if n==0{
 				break
 			}
 			f.Write((buf[:n]))
 		}
 
 	}
-}
+
+
 func main()  {
 	//监听
 	listenner,err := net.Listen("tcp","127.0.0.1:8000")
