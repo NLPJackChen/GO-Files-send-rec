@@ -17,7 +17,7 @@ func SendFile(path string,conn net.Conn)  {
 	//读文件内容
 	buf := make([]byte,1024*4)
 	for{
-		_,err := f.Read(buf)
+		n,err := f.Read(buf)
 		if err != nil {
 			if err == io.EOF{
 				fmt.Println("文件发送完毕")
@@ -27,6 +27,7 @@ func SendFile(path string,conn net.Conn)  {
 
 			return
 		}
+		conn.Write(buf[:n])
 	}
 }
 func main(){
