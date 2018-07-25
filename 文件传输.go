@@ -23,7 +23,6 @@ func SendFile(path string,conn net.Conn)  {
 			}else {
 				fmt.Println("wrong")
 			}
-
 			return
 		}
 		conn.Write(buf[:n])
@@ -64,7 +63,5 @@ func main(){
 	if "ok" == string(buf[:n]){
 		//发送文件内容
 		SendFile(path,conn)
-
 	}
-
 }
