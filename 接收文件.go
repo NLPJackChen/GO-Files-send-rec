@@ -21,7 +21,6 @@ func Recvfile(filename string,conn net.Conn) {
 				fmt.Println("文件接收完毕")
 			} else {
 				fmt.Println("err = ",err)
-
 			}
 			return }
 		if n==0{
@@ -29,7 +28,6 @@ func Recvfile(filename string,conn net.Conn) {
 			}
 			f.Write((buf[:n]))
 		}
-
 	}
 
 
@@ -58,6 +56,4 @@ func main()  {
 	filename := string(buf[:n])
 	conn.Write([]byte("ok"))
 	Recvfile(filename,conn)
-
-
 }
