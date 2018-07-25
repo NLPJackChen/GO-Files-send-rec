@@ -6,7 +6,6 @@ import (
 	"net"
 	"os"
 )
-
 func SendFile(path string,conn net.Conn)  {
 	f,err := os.Open(path)
 	if err != nil {
